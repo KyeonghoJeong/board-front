@@ -1,28 +1,28 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div >
+    <HeaderView/>
+    <TableView/>
+    <PageView/>
+    <WriteView/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HeaderView from './components/Header.vue';
+import TableView from './components/Table.vue';
+import PageView from './components/Page.vue';
+import WriteView from './components/Write.vue';
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+export default{
+  components:{
+    HeaderView,
+    TableView,
+    PageView,
+    WriteView,
+  },
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
