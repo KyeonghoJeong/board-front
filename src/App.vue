@@ -19,7 +19,7 @@ export default{
     TableView,
     PageView,
     WriteView,
-  },
+  }
 }
 </script>
 
