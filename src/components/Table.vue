@@ -19,11 +19,12 @@ export default {
                 { key: 'title', label: '제목', thStyle: { width: "60%" } },
                 { key: 'writer', label: '작성자', thStyle: { width: "20%" } },
             ],
-            items: []
+            items: [],
+            post: ''
         }
     },
     mounted(){
-        axios.get('/api/board/get')
+        axios.get('/api/board/get/posts')
             .then((response) => {
                 this.items = response.data;
                 console.log(this.time);
@@ -33,8 +34,21 @@ export default {
             })
     },
     methods: {
-        getOne(){
-            alert(this.items);
+        getOne(item){
+            axios.get('/api/board/get/post', {
+                    params:{
+                        id: item.id
+                    }
+                }
+            )
+            .then((response) => {
+                this.post = response.data;
+                this.$store.commit('setPost', this.post);
+                this.$router.push({ name: 'detail', query: { id: item.id } });
+            })
+            .catch((error) => {
+                console.log(error);
+            })
         }
     }
 }
